@@ -21,7 +21,7 @@ export const routes: Routes = [
   {path:"" , component:AdminComponent , children:[
     {path:"" , redirectTo:"seafarerslist" , pathMatch:"full" , title:"seafarerslist"} ,
     {path:"seafarerslist" , component: SeafarersListComponent , title:"seafarerslist" } ,
-    {path:"newseafarer" , component:AddnewseafarerComponent , title:"addnewseafarer"} ,
-    {path:"editseafarer/:id" , component:EditseafarerComponent , title:"editseafarer"} ,
+    {path:"newseafarer" , loadComponent:()=> import("./components/addnewseafarer/addnewseafarer.component").then( (c)=>c.AddnewseafarerComponent) , title:"addnewseafarer"} ,
+    {path:"editseafarer/:id" , loadComponent:()=> import("./components/editseafarer/editseafarer.component").then( (c)=>c.EditseafarerComponent)  , title:"editseafarer"} ,
   ]}
 ];

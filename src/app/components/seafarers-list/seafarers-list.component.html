@@ -1,0 +1,164 @@
+<!-- component seafarers  -->
+
+<section class="seafarers-list-about">
+  <div class="container-fluid">
+
+
+
+    <!-- seafarers head -->
+    <div class="seafarers-list-head">
+      <h2>All Seafarers List.</h2>
+      <button class="btn btn-primary" routerLink="/newseafarer"> <i class="fa-solid fa-plus"></i> Add New
+        Seafarers</button>
+    </div>
+
+
+
+
+    <!-- all seafarers all in table  -->
+
+
+
+
+    <div class="table-responsive table-wrapper">
+      <table class="seafarers-table">
+        <thead>
+          <tr>
+            <th>Employee Name</th>
+            <th>Sponsor Name</th>
+            <th>Employee Code</th>
+            <th>Job Name</th>
+            <th>Nationality</th>
+            <th>Birth Date</th>
+            <th>Phone</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th>National Id</th>
+            <th>Employment Date</th>
+            <th>Insurance Date</th>
+            <th>Passport Issue Date</th>
+            <th>Passport Expire Date</th>
+            <th>Passport Number</th>
+            <th>Visa Issue Date</th>
+            <th>Visa Expiry Date</th>
+            <th>Age</th>
+            <th>Actions</th>
+             <th>Status Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          @for (seafarer of AllSeafarers(); track seafarer.Id) {
+
+
+          <tr>
+            <td data-label="Employee Name">{{ seafarer.EmployeeName }}</td>
+            <td data-label="Sponsor Name">{{ seafarer.SponsorName }}</td>
+            <td data-label="Employee Code">{{ seafarer.EmployeeCode }}</td>
+            <td data-label="Job Name">{{ seafarer.JobName }}</td>
+            <td data-label="Nationality">{{ seafarer.Nationality |emptyvalue}}</td>
+            <td data-label="Birth Date">{{ seafarer.BirthDate | date:'dd/MM/yyyy' }}</td>
+            <td data-label="Phone">{{ seafarer.Phone }}</td>
+            <td data-label="Mobile">{{ seafarer.Mobile }}</td>
+            <td data-label="Email">{{ seafarer.Email }}</td>
+            <td data-label="National Id">{{ seafarer.NationalId }}</td>
+            <td data-label="Employment Date">{{ seafarer.EmploymentDate | date:'dd/MM/yyyy' }}</td>
+            <td data-label="Insurance Date">{{ seafarer.InsuranceDate | date:'dd/MM/yyyy' |emptyvalue}}</td>
+            <td data-label="Passport Issue Date">{{ seafarer.PassPortIssueDate | date:'dd/MM/yyyy' |emptyvalue}}</td>
+            <td data-label="Passport Expire Date">{{ seafarer.PassportExpireDate | date:'dd/MM/yyyy' |emptyvalue}}</td>
+            <td data-label="Passport Number">{{ seafarer.PassportNumber |emptyvalue}}</td>
+            <td data-label="Visa Issue Date">{{ seafarer.VisaIssueDate | date:'dd/MM/yyyy' |emptyvalue}}</td>
+            <td data-label="Visa Expiry Date">{{ seafarer.VisaExpiryDate | date:'dd/MM/yyyy' |emptyvalue}}</td>
+            <td data-label="Age">{{ seafarer.Age |emptyvalue}}</td>
+            <td data-label="Actions">
+              <button class="btn btn-edit"  [routerLink]="['/editseafarer' , seafarer.Id]"><i class="fa-solid fa-user-pen"></i>Edit</button>
+            </td>
+
+            <td data-label="">
+              <button class="btn btn-success btn-sm me-2" (click)="changeStatus(seafarer.Id, seafarer.EmpId, 1)">
+                Activate
+              </button>
+
+              <button class="btn btn-danger btn-sm" (click)="changeStatus(seafarer.Id, seafarer.EmpId, 2)">
+                Inactivate
+              </button>
+            </td>
+          </tr>
+          }
+
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</section>

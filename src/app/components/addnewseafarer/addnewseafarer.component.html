@@ -1,0 +1,219 @@
+<div class="add-seafarer-wrapper py-4">
+  <div class="container bg-light rounded shadow p-4">
+
+    <h3 class="text-center fw-bold text-primary mb-4">Add New Seafarer</h3>
+
+    <form [formGroup]="seafarerDetailsForm" (ngSubmit)="SaveSeafarerSubmit()">
+
+      <!-- ========== MAIN ENTITY INFO ========== -->
+      <div formGroupName="entity">
+        <h5 class="section-title">Main Information</h5>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label>Employee</label>
+            <select class="form-select" formControlName="EmpId">
+              <option value="">-- Select Employee --</option>
+              @for (item of employess(); track $index) {
+              <option [value]="item.Value">{{ item.Text }}</option>
+              }
+
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label>Visa Sponsor ID</label>
+             <select class="form-select" formControlName="VisaSponsorId">
+              <option value="">-- Select Employee --</option>
+              @for (item of vendors(); track $index) {
+              <option [value]="item.Value">{{ item.Text }}</option>
+              }
+          </select>
+          </div>
+          <div class="col-md-4">
+            <label>Seaman Book No</label>
+            <input type="text" class="form-control" formControlName="SeamanBookNO">
+          </div>
+
+          <div class="col-md-4">
+            <label>Passport Issue Date</label>
+            <input type="date" class="form-control" formControlName="PassPortIssueDate">
+          </div>
+          <div class="col-md-4">
+            <label>Visa Issue Date</label>
+            <input type="date" class="form-control" formControlName="VisaIssueDate">
+          </div>
+          <div class="col-md-4">
+            <label>Visa Expiry Date</label>
+            <input type="date" class="form-control" formControlName="VisaExpiryDate">
+          </div>
+
+          <div class="col-md-6">
+            <label>Name Of Spouse</label>
+            <input type="text" class="form-control" formControlName="NameOfSpouse">
+          </div>
+          <div class="col-md-6">
+            <label>No Of Children</label>
+            <input type="number" class="form-control" formControlName="NoOfChildren">
+          </div>
+
+          <div class="col-md-12">
+            <label>Remarks</label>
+            <textarea class="form-control" formControlName="Remarks" rows="2"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-4">
+
+      <!-- ========== QUALIFICATIONS ========== -->
+      <div>
+        <h5 class="section-title">Qualifications</h5>
+        <button type="button" class="btn btn-outline-primary btn-sm mb-2" (click)="addQualification()">+ Add
+          Qualification</button>
+
+        <div class="row g-3" formArrayName="Qualifications">
+          @for (q of Qualifications.controls; track $index) {
+          <div [formGroupName]="$index" class="col-md-12 border p-3 rounded mb-3 bg-white shadow-sm">
+            <div class="row g-2">
+              <div class="col-md-4">
+                <label>Degree / Course</label>
+                <input class="form-control" formControlName="DegreeOrCourse">
+              </div>
+              <div class="col-md-4">
+                <label>Issue Date</label>
+                <input type="date" class="form-control" formControlName="CourseIssueDate">
+              </div>
+              <div class="col-md-4">
+                <label>Expiry Date</label>
+                <input type="date" class="form-control" formControlName="ExpiryDate">
+              </div>
+              <div class="col-md-6">
+                <label>Major / Subject</label>
+                <input class="form-control" formControlName="MajorOrSubject">
+              </div>
+              <div class="col-md-6">
+                <label>University</label>
+                <input class="form-control" formControlName="University">
+              </div>
+              <div class="col-md-4">
+                <label>Country</label>
+                <input class="form-control" formControlName="Country">
+              </div>
+              <div class="col-md-4">
+                <label>Type</label>
+                <input type="number" class="form-control" formControlName="Type">
+              </div>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+
+      <hr class="my-4">
+
+      <!-- ========== CERTIFICATES ========== -->
+      <div>
+        <h5 class="section-title">Certificates</h5>
+        <button type="button" class="btn btn-outline-primary btn-sm mb-2" (click)="addCertificate()">+ Add
+          Certificate</button>
+
+        <div formArrayName="Certificates">
+          @for (c of Certificates.controls; track $index) {
+          <div [formGroupName]="$index" class="border p-3 rounded mb-3 bg-white shadow-sm">
+            <div class="row g-2">
+              <div class="col-md-4"><label>Capacity</label><input class="form-control" formControlName="Capacity"></div>
+              <div class="col-md-4"><label>Regulation</label><input class="form-control" formControlName="Regulation">
+              </div>
+              <div class="col-md-4"><label>Issue Date</label><input type="date" class="form-control"
+                  formControlName="IssueDate"></div>
+              <div class="col-md-4"><label>Expiry Date</label><input type="date" class="form-control"
+                  formControlName="ExpiryDate"></div>
+              <div class="col-md-4"><label>Issuing Authority</label><input class="form-control"
+                  formControlName="IssuingAuthority"></div>
+              <div class="col-md-4"><label>Limitations</label><input class="form-control" formControlName="Limitations">
+              </div>
+              <div class="col-md-4"><label>Country</label><input class="form-control" formControlName="Country"></div>
+              <div class="col-md-4"><label>Type</label><input type="number" class="form-control" formControlName="Type">
+              </div>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+
+      <hr class="my-4">
+
+      <!-- ========== LANGUAGES ========== -->
+      <div>
+        <h5 class="section-title">Languages</h5>
+        <button type="button" class="btn btn-outline-primary btn-sm mb-2" (click)="addLanguage()">+ Add
+          Language</button>
+
+        <div formArrayName="Languages">
+          @for (l of Languages.controls; track $index) {
+          <div [formGroupName]="$index" class="border p-3 rounded mb-3 bg-white shadow-sm">
+            <div class="row g-2">
+              <div class="col-md-4"><label>Language</label><input class="form-control" formControlName="Capacity"></div>
+              <div class="col-md-4"><label>Level</label><input class="form-control" formControlName="Regulation"></div>
+              <div class="col-md-4"><label>Country</label><input class="form-control" formControlName="Country"></div>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+
+      <hr class="my-4">
+
+      <!-- ========== REFERENCES ========== -->
+      <div>
+        <h5 class="section-title">References</h5>
+        <button type="button" class="btn btn-outline-primary btn-sm mb-2" (click)="addReference()">+ Add
+          Reference</button>
+
+        <div formArrayName="References">
+          @for (r of References.controls; track $index) {
+          <div [formGroupName]="$index" class="border p-3 rounded mb-3 bg-white shadow-sm">
+            <div class="row g-2">
+              <div class="col-md-4"><label>Name</label><input class="form-control" formControlName="PersonName"></div>
+              <div class="col-md-4"><label>Company</label><input class="form-control" formControlName="CompanyName">
+              </div>
+              <div class="col-md-4"><label>Email</label><input class="form-control" formControlName="EmailId"></div>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+
+      <hr class="my-4">
+
+      <!-- ========== WORK EXPERIENCES ========== -->
+      <div>
+        <h5 class="section-title">Work Experience</h5>
+        <button type="button" class="btn btn-outline-primary btn-sm mb-2" (click)="addWorkExperience()">+ Add
+          Experience</button>
+
+        <div formArrayName="WorkExperiences">
+          @for (w of WorkExperiences.controls; track $index) {
+          <div [formGroupName]="$index" class="border p-3 rounded mb-3 bg-white shadow-sm">
+            <div class="row g-2">
+              <div class="col-md-4"><label>Vessel Name</label><input class="form-control" formControlName="VesselName">
+              </div>
+              <div class="col-md-4"><label>Vessel Type</label><input class="form-control" formControlName="VesselType">
+              </div>
+              <div class="col-md-4"><label>Company</label><input class="form-control" formControlName="CompanyName">
+              </div>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+
+      <!-- SAVE BUTTON -->
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-primary px-5 py-2 fw-bold">
+          <i class="fa fa-save me-2"></i>Save Seafarer
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

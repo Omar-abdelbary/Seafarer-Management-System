@@ -1,0 +1,210 @@
+
+<section class="edit-info">
+  <div class="container">
+
+
+    <div class="edit-seafarer-container">
+  <h2>Edit Seafarer Details</h2>
+
+  <form [formGroup]="EditSeafarerForm" (ngSubmit)="SaveEdit()" novalidate>
+
+    <!-- Entity Section -->
+    <section class="form-section">
+      <h3>Seafarer Information</h3>
+      <div formGroupName="entity" class="entity-grid">
+
+        <label>
+          <span>Id</span>
+          <input formControlName="Id" type="number" readonly />
+        </label>
+
+        <label>
+          <span>Passport Issue Date</span>
+          <input formControlName="PassPortIssueDate" type="date" />
+        </label>
+
+        <label>
+          <span>ID Expiry Date</span>
+          <input formControlName="IDExPiryDate" type="date" />
+        </label>
+
+        <label>
+          <span>Seaman Book NO</span>
+          <input formControlName="SeamanBookNO" type="text" />
+        </label>
+
+        <label>
+          <span>Remarks</span>
+          <textarea formControlName="Remarks" rows="2"></textarea>
+        </label>
+
+        <label>
+          <span>EmpId</span>
+          <input formControlName="EmpId" type="number" />
+        </label>
+
+        <label>
+          <span>Visa Sponsor Id</span>
+          <input formControlName="VisaSponsorId" type="number" />
+        </label>
+
+        <label>
+          <span>Visa Issue Date</span>
+          <input formControlName="VisaIssueDate" type="date" />
+        </label>
+
+        <label>
+          <span>Visa Expiry Date</span>
+          <input formControlName="VisaExpiryDate" type="date" />
+        </label>
+
+        <label>
+          <span>Name of Spouse</span>
+          <input formControlName="NameOfSpouse" type="text" />
+        </label>
+
+        <label>
+          <span>No. of Children</span>
+          <input formControlName="NoOfChildren" type="number" />
+        </label>
+
+        <label>
+          <span>Body Weight (kg)</span>
+          <input formControlName="BodyWeight" type="number" />
+        </label>
+
+        <label>
+          <span>Height (cm)</span>
+          <input formControlName="Height" type="number" />
+        </label>
+
+        <label>
+          <span>Visa UAE Id NO</span>
+          <input formControlName="VisaUAEIdNO" type="text" />
+        </label>
+
+        <label>
+          <span>Nearest Airport</span>
+          <input formControlName="NearestAirport" type="text" />
+        </label>
+
+        <label>
+          <span>Residence Number</span>
+          <input formControlName="ResidenceNumber" type="text" />
+        </label>
+
+        <label>
+          <span>Skype ID</span>
+          <input formControlName="SkypeID" type="text" />
+        </label>
+
+        <label>
+          <span>Permanent Address Home Country</span>
+          <input formControlName="PermanentAddressHomeCountry" type="text" />
+        </label>
+
+        <label>
+          <span>Contact Number Home Country</span>
+          <input formControlName="ContactNumberHomeCountry" type="text" />
+        </label>
+
+        <label>
+          <span>Emergency Contact UAE</span>
+          <input formControlName="ContactNameAndNumberDuringEmergenciesUAE" type="text" />
+        </label>
+
+        <label>
+          <span>Emergency Contact Home</span>
+          <input formControlName="ContactNameAndNumberDuringEmergenciesHome" type="text" />
+        </label>
+
+        <label>
+          <span>Seaman Issue Date</span>
+          <input formControlName="SeamanIssueDate" type="date" />
+        </label>
+
+        <label>
+          <span>Seaman Expiry Date</span>
+          <input formControlName="SeamanExpiryDate" type="date" />
+        </label>
+
+        <label>
+          <span>Cicpa NO</span>
+          <input formControlName="CicpaNO" type="text" />
+        </label>
+
+        <label>
+          <span>Cicpa Issue Date</span>
+          <input formControlName="CicpaIssueDate" type="date" />
+        </label>
+
+        <label>
+          <span>Cicpa Expiry Date</span>
+          <input formControlName="CicpaExpiryDate" type="date" />
+        </label>
+
+        <label>
+          <span>Declaration</span>
+          <textarea formControlName="Declaration" rows="2"></textarea>
+        </label>
+
+        <!-- Checkboxes with comments -->
+        <div class="checkbox-group">
+          <label>
+            <input formControlName="SignedOffFromAShipDueToMedicalReason" type="checkbox" />
+            Signed Off From A Ship Due To Medical Reason
+          </label>
+          <textarea formControlName="SignedOffFromAShipDueToMedicalReasonComment" rows="2" placeholder="Comment"></textarea>
+        </div>
+
+        <div class="checkbox-group">
+          <label>
+            <input formControlName="UndergoneAnyMdicalOperation" type="checkbox" />
+            Undergone Any Medical Operation
+          </label>
+          <textarea formControlName="UndergoneAnyMdicalOperationComment" rows="2" placeholder="Comment"></textarea>
+        </div>
+
+        <div class="checkbox-group">
+          <label>
+            <input formControlName="DoctorConsultation" type="checkbox" />
+            Doctor Consultation
+          </label>
+          <textarea formControlName="DoctorConsultationComment" rows="2" placeholder="Comment"></textarea>
+        </div>
+
+        <div class="checkbox-group">
+          <label>
+            <input formControlName="HealthOrDisabilityProblem" type="checkbox" />
+            Health Or Disability Problem
+          </label>
+          <textarea formControlName="HealthOrDisabilityProblemComment" rows="2" placeholder="Comment"></textarea>
+        </div>
+
+        <div class="checkbox-group">
+          <label>
+            <input formControlName="InquiryOrInvolvedMaritimeAccident" type="checkbox" />
+            Inquiry Or Involved In Maritime Accident
+          </label>
+          <textarea formControlName="InquiryOrInvolvedMaritimeAccidentComment" rows="2" placeholder="Comment"></textarea>
+        </div>
+
+        <div class="checkbox-group">
+          <label>
+            <input formControlName="LicenseSuspendedOrRevoked" type="checkbox" />
+            License Suspended Or Revoked
+          </label>
+          <textarea formControlName="LicenseSuspendedOrRevokedComment" rows="2" placeholder="Comment"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- You can add Qualifications, Certificates, Languages, References, WorkExperiences similarly in collapsible sections -->
+
+    <button type="submit" class="btn btn-save">Save Changes</button>
+  </form>
+</div>
+
+  </div>
+</section>
+

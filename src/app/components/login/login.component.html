@@ -1,0 +1,78 @@
+<!-- component login  -->
+
+
+<section class="login-info">
+
+  <div class="container">
+
+
+    <form class="form"  [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+
+      <!-- form head -->
+
+      <div class="form-head">
+        <h3>Login Here</h3>
+
+      </div>
+
+
+      <!-- name info -->
+      <div class="form-info">
+        <label for="name">name:</label>
+        <input type="text" id="name" class="form-control" placeholder="enter name." formControlName="username" [ngClass]="{
+          'is-valid' : !loginForm.get('username')?.errors && (loginForm.get('username')?.touched ||loginForm.get('username')?.dirty) ,
+          'is-invalid' : loginForm.get('username')?.errors && (loginForm.get('username')?.touched ||loginForm.get('username')?.dirty)
+        }" >
+
+        @if (loginForm.get("username")?.errors && loginForm.get("username")?.touched) {
+
+          <div class="alert alert-danger">
+
+            @if (loginForm.get("username")?.getError("required")) {
+              <p>Username is required.</p>
+            }
+
+            @else if (loginForm.get("username")?.getError("minlength")) {
+              <p>Username must be at least 5 characters long.</p>
+            }
+
+            @else if (loginForm.get("username")?.getError("maxlength")) {
+              <p>Username cannot exceed 30 characters.</p>
+            }
+          </div>
+        }
+      </div>
+
+
+      <!-- password info -->
+
+      <div class="form-info">
+        <label for="password"> password:</label>
+        <input type="password" id="password" class="form-control" placeholder="enter password" formControlName="Password" [ngClass]="{
+          'is-valid' : !loginForm.get('Password')?.errors && (loginForm.get('Password')?.touched ||loginForm.get('Password')?.dirty) ,
+          'is-invalid' : loginForm.get('Password')?.errors && (loginForm.get('Password')?.touched ||loginForm.get('Password')?.dirty)
+        }" >
+
+
+@if (loginForm.get('Password')?.errors && loginForm.get('Password')?.touched) {
+
+  <div class="alert alert-danger">
+
+    @if (loginForm.get('Password')?.getError("required")) {
+      <p>Password is required.</p>
+    }
+
+    @else if (loginForm.get("Password")?.getError("pattern")) {
+      <p>Password must be at least 6 digits</p>
+    }
+  </div>
+}
+      </div>
+
+
+      <!-- btn submit  -->
+
+      <button class="btn">login</button>
+    </form>
+  </div>
+</section>

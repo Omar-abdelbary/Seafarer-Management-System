@@ -14,7 +14,7 @@ export class AuthService {
   private readonly _HttpClient = inject(HttpClient) ;
 
 
-  Token :any = null ;
+  
 
 
 
@@ -40,14 +40,10 @@ login(loginInfo: any): Observable<any> {
 
 
 
-// decode token
-
-  SaveToken() {
-    this.Token = jwtDecode(localStorage.getItem("App_Token") !)
-  }
 
 
 
 
-  
+
+
 }

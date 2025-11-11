@@ -9,10 +9,11 @@ import { provideToastr } from 'ngx-toastr';
 import { NgxSpinner } from 'ngx-spinner';
 import { loadingInterceptor } from './core/interceptors/loading.interceptor';
 import { headersInterceptor } from './core/interceptors/headers.interceptor';
+import { errorsInterceptor } from './core/interceptors/errors.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes , withViewTransitions()), provideClientHydration() ,
-    provideHttpClient(withFetch() , withInterceptors([loadingInterceptor , headersInterceptor ,  ] ) ) ,
+    provideHttpClient(withFetch() , withInterceptors([loadingInterceptor , headersInterceptor ,errorsInterceptor  ] ) ) ,
     provideAnimations() ,
      provideToastr(),
      importProvidersFrom(NgxSpinner)
